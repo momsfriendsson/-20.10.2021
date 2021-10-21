@@ -1,0 +1,24 @@
+Задача 1.Выбрать отдел в котором нет сотрудников.
+Задача 2.Выбрать отдел в котором работает больше 1 сотрудника.
+Задача 3.Выбрать сотрудников у которых нет отдела.
+
+1.
+SELECT departaments.name, users.name FROM departaments AS dept
+LEFT JOIN users
+ON users.d_id = dept.id
+WHERE d_id is NULL;
+
+
+2.
+SELECT departaments.name, COUNT (users.name) FROM departaments AS dept
+ JOIN users
+ON dept.id = users.d_id 
+WHERE COUNT(users.name)>1;
+
+
+3.
+SELECT departaments.name, users.name FROM departaments AS dept
+RIGHT JOIN users
+ON dept.id = users.d_id 
+WHERE dept.name is NULL;
+
